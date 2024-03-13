@@ -4,4 +4,6 @@ def print_tebahpla():
         if i % 2 != 0:
             i = i - 32
         print("{:c}".format(i), end="")
+
+
 print_tebahpla()
