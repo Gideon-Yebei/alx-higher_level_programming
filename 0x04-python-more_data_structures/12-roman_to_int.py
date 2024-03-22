@@ -1,26 +1,27 @@
 #!/usr/bin/python3
-def convert_roman(ch):
-    # converts a roman numeral character into the respective integer
+from typing import Union
+
+
+def convert_roman(ch: str) -> int:
     ret = -1
-    if ch == 'I':
+    if ch == "I":
         ret = 1
-    elif ch == 'V':
+    elif ch == "V":
         ret = 5
-    elif ch == 'X':
+    elif ch == "X":
         ret = 10
-    elif ch == 'L':
+    elif ch == "L":
         ret = 50
-    elif ch == 'C':
+    elif ch == "C":
         ret = 100
-    elif ch == 'D':
+    elif ch == "D":
         ret = 500
-    elif ch == 'M':
+    elif ch == "M":
         ret = 1000
     return ret
 
 
-def roman_to_int(roman_string):
-    # converts any string of roman numerals to decimal
+def roman_to_int(roman_string: Union[str, None]) -> int:
     cur_max = -1
     cur = conv = 0
     holder = []
@@ -38,8 +39,6 @@ def roman_to_int(roman_string):
             elif cur < cur_max:
                 holder.append(cur)
             elif cur > cur_max:
-                # only happens if smaller is starting number
-                # for example: IIX, VXC
                 cur_max = cur
                 cur -= conv
                 conv = cur
